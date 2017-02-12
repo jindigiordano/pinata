@@ -5,6 +5,8 @@ var store = require('./store.js');
 var Mustache = require('mustache');
 var fs = require('fs');
 var util = require('util');
+var PubNub = require('pubnub')
+
 
 flock.appId = config.appId;
 flock.appSecret = config.appSecret;
@@ -22,7 +24,38 @@ flock.events.on('app.install', function (event, callback) {
 });
 
 flock.events.on('client.slashCommand', function (event) {
-    console.log("I am here!!!");
+    // console.log(flock.groups.getInfo(config.botToken, {
+    //   groupId: event.chat
+    // }));
+    console.log('**')
+    console.log(flock.groups)
+    console.log('**')
+    flock.groups.getInfo(config.botToken, event.chat,  function (error, response) {
+      console.log('***<<><>><><>><<><>><****');
+      if (error) {
+        console.log('error: ', error);
+      } else {
+        console.log(response);
+      }
+      console.log('***<<><>><><>><<><>><****');
+    });
+
+    //create pubnub channel
+    var pubnub = new PubNub({
+        publishKey: 'pub-c-dd67de64-9c14-4790-906e-d26042ada52f',
+        subscribeKey: 'sub-c-103fb66a-f0de-11e6-acae-0619f8945a4f'
+    });
+
+    pubnub.addListener({
+        message: function(message){
+          // console.log(message)
+        }
+    })
+    pubnub.subscribe({
+        channels: ['demo_tutorial']
+    });
+    //
+
     flock.chat.sendMessage(config.botToken, {
       to: event.chat,
       text: "🎉🎉💸💸It's piñata time!💸💸🎉🎉",
@@ -36,7 +69,7 @@ flock.events.on('client.slashCommand', function (event) {
         // "color": "#0ABE51",
         "views": {
             // Attachment widget
-            "widget": { "src": "https://1d993cd8.ngrok.io/pub", "width": 400, "height": 400 },
+            "widget": { "src": "https://59319b0e.ngrok.io/pub", "width": 400, "height": 400 },
             // // Inline html
             // "html": { "inline": "<img src='https://media.giphy.com/media/iqgkvYsr2VYBy/giphy.gif' width='200'>", "width": 400, "height": 200 },
             // "flockml": "<inline flockml>",
