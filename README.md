@@ -1,4 +1,4 @@
-# leprechaun
+# Pinata
 A red-envelope style app for Flock
 
 ## Contributors
