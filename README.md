@@ -6,4 +6,4 @@ A red-envelope style app for Flock
 * [Jin Di Giordano](https://github.com/jindigiordano)
 * [James Draper](https://github.com/jdraper9)
 * [Andy Bruckman](https://github.com/abruckman)
-* [May](https://github.com/)
+* [May Wu](https://github.com/codemayday)
