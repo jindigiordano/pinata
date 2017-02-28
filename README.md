@@ -10,6 +10,8 @@ Manager send pinata filled with designated amount of money, ie. $10. First perso
 
 It's simple, just use the '/pinata' slash command to play!
 
+![pinata screenshot](https://github.com/jindigiordano/pinata/blob/development/pinata_screenshot_flock.png?raw=true)
+
 ## Contributors
 * [Katrina DeVaney](https://github.com/kattak)
 * [Jin Di Giordano](https://github.com/jindigiordano)
